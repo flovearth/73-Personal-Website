@@ -165,13 +165,27 @@ resource "aws_iam_role_policy" "personal_website_github_actions_s3" {
 }
 
 # --- S3 Bucket for Terraform State Files ---
-resource "aws_s3_bucket" "personal_website_statefiles" {
+# Bucket is created in workflow before Terraform init; reference it here.
+data "aws_s3_bucket" "personal_website_statefiles" {
   bucket = var.state_bucket_name
+}
 
-  tags = {
-    Name        = var.state_bucket_name
-    Environment = "prod"
-    Project     = "personal-website"
+resource "aws_s3_bucket_tagging" "personal_website_statefiles" {
+  bucket = data.aws_s3_bucket.personal_website_statefiles.id
+
+  tag_set {
+    key   = "Name"
+    value = var.state_bucket_name
+  }
+
+  tag_set {
+    key   = "Environment"
+    value = "prod"
+  }
+
+  tag_set {
+    key   = "Project"
+    value = "personal-website"
   }
 }
 
