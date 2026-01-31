@@ -39,3 +39,16 @@ jobs:
             --exclude "*.tfstate.*" \
             --exclude "main.tf" \
             --exclude "terraform.tfvars"
+
+      - name: Deployment Summary
+        run: |
+          echo "## 🚀 Deployment Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Your personal website has been deployed!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🌐 Website URLs" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **S3 Website (HTTP):** http://feyz-sari-personal-website.s3-website.eu-west-2.amazonaws.com/" >> $GITHUB_STEP_SUMMARY
+          echo "- **CloudFront (HTTPS):** https://d27kouz4bklgu9.cloudfront.net/" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Deployed at: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
