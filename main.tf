@@ -177,6 +177,10 @@ output "personal_website_endpoint" {
   value = aws_s3_bucket_website_configuration.personal_website.website_endpoint
 }
 
+output "personal_website_url" {
+  value = "http://${aws_s3_bucket_website_configuration.personal_website.website_endpoint}"
+}
+
 output "personal_website_github_actions_role_arn" {
   value = aws_iam_role.personal_website_github_actions.arn
 }
