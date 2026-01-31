@@ -100,11 +100,9 @@ resource "aws_s3_bucket_policy" "personal_website_public_read" {
   })
 }
 
-# --- GitHub OIDC Provider ---
-resource "aws_iam_openid_connect_provider" "github" {
-  url             = "https://token.actions.githubusercontent.com"
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = [var.github_oidc_thumbprint]
+# --- GitHub OIDC Provider (existing) ---
+data "aws_iam_openid_connect_provider" "github" {
+  url = "https://token.actions.githubusercontent.com"
 }
 
 # --- IAM Role for GitHub Actions (OIDC) ---
@@ -117,7 +115,7 @@ resource "aws_iam_role" "personal_website_github_actions" {
       {
         Effect = "Allow"
         Principal = {
-          Federated = aws_iam_openid_connect_provider.github.arn
+          Federated = data.aws_iam_openid_connect_provider.github.arn
         }
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
