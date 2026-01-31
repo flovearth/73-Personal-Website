@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Feyz Sari - Cloud/DevOps Engineer Portfolio">
+    <title>Feyz Sari - Cloud/DevOps Engineer</title>
+    
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Light Mode Colors (Dark Minimal Palette) */
+            --primary-color: #111827;
+            --secondary-color: #1f2937;
+            --accent-color: #f59e0b;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f3f4f6;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Dark Mode Colors */
+        [data-theme="dark"] {
+            --primary-color: #0b1120;
+            --secondary-color: #111827;
+            --accent-color: #f59e0b;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #0b1120;
+            --bg-secondary: #111827;
+            --bg-card: #0f172a;
+            --border-color: #1f2937;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -1px rgba(0, 0, 0, 0.35);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== GLOBAL STYLES ===== */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.25rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #0b1120 0%, #111827 60%, #1f2937 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HIGHLIGHTS SECTION ===== */
+        .highlights {
+            padding: 4rem 2rem;
+            background-color: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .highlight-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== ABOUT / CV SECTION ===== */
+        .about {
+            padding: 5rem 2rem;
+            background-color: var(--bg-primary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-summary {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .about-summary h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .about-summary p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .experience-section, .skills-section, .education-section {
+            margin-top: 3rem;
+        }
+
+        .experience-item {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .experience-item li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .cert-card h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 5rem 2rem;
+            background-color: var(--bg-secondary);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--bg-card);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .highlights, .about, .contact {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-img" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">FS</div>
+                <span>Feyz Sari</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Feyz Sari</h1>
+                <p class="subtitle">Cloud / DevOps Engineer</p>
+                <p>5+ years of expertise in AWS, Kubernetes, Terraform, and CI/CD automation. Proven track record of reducing cloud costs by up to 94% while improving security scores from 34 to 87. Specialising in building scalable, secure, and cost-efficient cloud platforms.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#about" class="btn btn-secondary">View Portfolio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HIGHLIGHTS SECTION ===== -->
+        <section class="highlights">
+            <div class="container">
+                <h2 class="section-title">Key Achievements</h2>
+                <p class="section-subtitle">Delivering excellence in cloud infrastructure and DevOps</p>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">💰</div>
+                        <h3>Cost Optimisation Expert</h3>
+                        <p>Achieved dramatic cloud cost reductions: 94% and 74% in major accounts through FinOps-driven solutions. Service-specific savings include RDS 38%, S3 90%, and EC2 78%.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🔒</div>
+                        <h3>Security Champion</h3>
+                        <p>Increased AWS Security Hub scores from 34 to 87 across four accounts by implementing 160+ security improvements and best practices.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🚀</div>
+                        <h3>DevOps Automation</h3>
+                        <p>Leading management of 100+ CI/CD pipelines across GitHub Actions, Jenkins, and CircleCI with minimal downtime and maximum reliability.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⭐</div>
+                        <h3>Team Collaboration</h3>
+                        <p>Rated 9/10 happy to have as a colleague. Supporting five software engineering teams with hassle-free, fully automated development environments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT / CV SECTION ===== -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-summary">
+                        <h3>Professional Summary</h3>
+                        <p>Cloud Platform & DevOps Engineer with 5+ years of hands-on experience designing and operating secure, scalable, and cost-efficient AWS platforms. Specialised in EKS, Kubernetes, Terraform, CI/CD automation, and cloud security. Proven success improving cloud reliability, reducing costs by up to 94%, and raising Security Hub scores across multi-account environments.</p>
+                        <p style="margin-top: 1rem;">My work ethic is to provide hassle-free and fully automated development/production environments for teams to do their best while keeping them secure and cost-optimised. I quickly address bottlenecks and remove blockages to create a workplace where teams will be happy to work and can focus on their product.</p>
+                    </div>
+                </div>
+
+                <!-- ===== EXPERIENCE SECTION ===== -->
+                <div class="experience-section" id="experience">
+                    <h2 class="section-title" style="margin-top: 3rem;">Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="job-title">Cloud / DevOps Engineer</h3>
+                            <p class="company">Sainsbury's Digital, Tech and Data, Coventry</p>
+                            <p class="date">March 2022 to Present</p>
+                        </div>
+                        <ul>
+                            <li>Working in an Agile environment and supporting five software engineering teams</li>
+                            <li>Architecting, managing, optimising, securing, and maintaining 50+ services, 4 applications, 30+ tools across production and three non-production environments</li>
+                            <li>Managing four EKS infrastructures using Terraform modules, enabling autoscaling workloads and supporting public websites, internal portals, and web services</li>
+                            <li>Leading the management, development, and maintenance of 100+ CI/CD pipelines across GitHub Actions, Jenkins, and CircleCI</li>
+                            <li>Maintaining RDS (Oracle and MySQL), Amazon Neptune, MongoDB, and DynamoDB databases with comprehensive backup, DR strategies, and version upgrades</li>
+                            <li>Maintaining monitoring infrastructure including ElasticSearch, Amazon OpenSearch, Kibana, Grafana, Prometheus, NewRelic, and ServiceNow integrations</li>
+                            <li>Implementing cloud security improvements (160+ Jira tasks) that increased AWS Security Hub scores from 34 to 87 across four accounts</li>
+                            <li>Developing FinOps-driven solutions achieving cost reductions of 94% and 74% in two accounts, and 12% and 6% in two others</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="job-title">DevOps Engineer</h3>
+                            <p class="company">Finspire Technology, London</p>
+                            <p class="date">July 2021 to March 2022</p>
+                        </div>
+                        <ul>
+                            <li>Worked in an Agile environment with daily Scrum meetings in DevSecOps team of Finance/Banking sector fintech start-up</li>
+                            <li>Built complete backup and disaster recovery infrastructure and automation pipeline for Jenkins server using Terraform, EC2, and S3</li>
+                            <li>Created Jenkins pipeline with Ansible playbook for automated user management - 99% faster and 100% secure solution</li>
+                            <li>Performed reviewing and maintaining existing systems including servers, pipelines, databases, containers, infrastructure, and network</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="job-title">Cloud / DevOps Engineer</h3>
+                            <p class="company">SCT, VA, USA</p>
+                            <p class="date">February 2021 to July 2021</p>
+                        </div>
+                        <ul>
+                            <li>UK-Edutest project: Online education project for GCSE</li>
+                            <li>Moxvio: Infrastructure project for retailer providing auto-stop/start Windows server, reducing costs by 25%</li>
+                            <li>Keypoint Solutions: Migration project from Microsoft Azure to AWS with CI/CD pipelines and automation</li>
+                            <li>Keyword Education - Silben Wörterbuch: Built hybrid infrastructure causing 85% savings in total cloud costs</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="job-title">IT Support Engineer</h3>
+                            <p class="company">Mikroes IT Services, Istanbul, Turkey</p>
+                            <p class="date">May 2017 to May 2020</p>
+                        </div>
+                        <ul>
+                            <li>Managed desktop technical support services as 1st and 2nd line support professional</li>
+                            <li>Developed end-user self-service troubleshooting reference manuals resulting in 30% reduction in service desk requests</li>
+                            <li>Co-managed restructure of customer support services, boosting revenues by 10% each year</li>
+                            <li>Provided technical advice on migrating data and applications to modern technologies including cloud platforms</li>
+                            <li>Experience with virtual machines, Linux, Microsoft 365, Windows servers, bash scripting, and PowerShell</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ===== SKILLS SECTION ===== -->
+                <div class="skills-section" id="skills">
+                    <h2 class="section-title" style="margin-top: 3rem;">Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>☁️ Cloud & Compute</h4>
+                            <ul>
+                                <li>EC2, Lambda, EKS</li>
+                                <li>ECS, ECR</li>
+                                <li>Amazon SageMaker</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>🔧 DevOps Tools</h4>
+                            <ul>
+                                <li>Docker, Kubernetes, Helm, Flux</li>
+                                <li>Terraform, CloudFormation</li>
+                                <li>Bash Scripting, Makefile</li>
+                                <li>CI/CD: Jenkins, GitHub Actions, CircleCI</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>💾 Storage & Databases</h4>
+                            <ul>
+                                <li>RDS (Oracle, MySQL)</li>
+                                <li>DynamoDB, MongoDB</li>
+                                <li>Amazon Neptune, Redis</li>
+                                <li>S3, EFS</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>🌐 Networking</h4>
+                            <ul>
+                                <li>VPC, Route53, CloudFront</li>
+                                <li>WAF, AutoScaling</li>
+                                <li>Nginx, Load Balancing</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>📊 Monitoring & Observability</h4>
+                            <ul>
+                                <li>Prometheus, Grafana</li>
+                                <li>ElasticSearch, Kibana</li>
+                                <li>CloudWatch, CloudTrail</li>
+                                <li>NewRelic, ServiceNow</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>🔐 Security & Compliance</h4>
+                            <ul>
+                                <li>IAM, Security Hub</li>
+                                <li>Secrets Manager, KMS</li>
+                                <li>Certificate Manager</li>
+                                <li>HashiCorp Vault, SOPS</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title" style="margin-top: 3rem; font-size: 1.75rem;">Education & Certifications</h3>
+                    <div class="certifications">
+                        <div class="cert-card">
+                            <h4>🎓 Bachelor of Science</h4>
+                            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Industrial Engineering<br>Hacettepe University</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>📜 AWS Certified Cloud Practitioner</h4>
+                            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Amazon Web Services</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>📜 AWS Certified Solutions Architect - Associate</h4>
+                            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Amazon Web Services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss how I can help with your cloud infrastructure needs</p>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:flovearth@gmail.com">flovearth@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <a href="tel:+447999345046">07999 345046</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Solihull, UK</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>💼</span>
+                            <a href="https://www.linkedin.com/in/feyzsari" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Send Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="nameError">Please enter your name</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError">Please enter a valid email</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required></textarea>
+                                <span class="error-message" id="messageError">Please enter your message</span>
+                            </div>
+                            <button type="submit" class="btn-submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/feyzsari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">💼</a>
+            <a href="mailto:flovearth@gmail.com" aria-label="Email">📧</a>
+            <a href="https://github.com/feyzsari" target="_blank" rel="noopener noreferrer" aria-label="GitHub">🔗</a>
+        </div>
+        <p>&copy; 2026 Feyz Sari. All rights reserved.</p>
+    </footer>
+
+    <!-- ===== SCROLL TO TOP BUTTON ===== -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== DARK/LIGHT MODE TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // ===== SCROLL TO TOP BUTTON =====
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ===== FORM VALIDATION =====
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let isValid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+
+            // Validate name
+            if (nameInput.value.trim() === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate message
+            if (messageInput.value.trim() === '') {
+                document.getElementById('messageError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Create mailto link with form data
+                const subject = encodeURIComponent('Website Contact Form - From ' + nameInput.value);
+                const body = encodeURIComponent(
+                    'Name: ' + nameInput.value + '\n' +
+                    'Email: ' + emailInput.value + '\n\n' +
+                    'Message:\n' + messageInput.value
+                );
+                
+                // Open default email client
+                window.location.href = 'mailto:flovearth@gmail.com?subject=' + subject + '&body=' + body;
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                alert('Thank you for your message! Your default email client will open to send the message.');
+            }
+        });
+
+        // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.highlight-card, .experience-item, .skill-category, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

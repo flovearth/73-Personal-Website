@@ -1,0 +1,41 @@
+name: Deploy index.html to S3
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  BUCKET_NAME: ${{ vars.BUCKET_NAME }}
+  AWS_REGION: ${{ vars.AWS_REGION }}
+  AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Upload site to S3
+        run: |
+          aws s3 sync . s3://$BUCKET_NAME \
+            --only-show-errors \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude ".terraform/*" \
+            --exclude "*.tfstate" \
+            --exclude "*.tfstate.*" \
+            --exclude "main.tf" \
+            --exclude "terraform.tfvars"
