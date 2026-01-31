@@ -170,25 +170,6 @@ data "aws_s3_bucket" "personal_website_statefiles" {
   bucket = var.state_bucket_name
 }
 
-resource "aws_s3_bucket_tagging" "personal_website_statefiles" {
-  bucket = data.aws_s3_bucket.personal_website_statefiles.id
-
-  tag_set {
-    key   = "Name"
-    value = var.state_bucket_name
-  }
-
-  tag_set {
-    key   = "Environment"
-    value = "prod"
-  }
-
-  tag_set {
-    key   = "Project"
-    value = "personal-website"
-  }
-}
-
 # --- Outputs ---
 output "personal_website_bucket_name" {
   value = aws_s3_bucket.personal_website.bucket
