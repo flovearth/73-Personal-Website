@@ -424,6 +424,78 @@
             font-size: 1.1rem;
         }
 
+        /* ===== ARTICLES SECTION ===== */
+        .articles {
+            padding: 5rem 2rem;
+            background-color: var(--bg-primary);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background-color: var(--bg-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .article-link:hover {
+            gap: 0.75rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
         /* ===== CONTACT SECTION ===== */
         .contact {
             padding: 5rem 2rem;
@@ -701,7 +773,7 @@
     <header>
         <nav>
             <a href="#" class="logo">
-                <div class="logo-img" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">FS</div>
+                <div class="logo-img" style="background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">FS</div>
                 <span>Feyz Sari</span>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -709,6 +781,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#articles">Articles</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
             </ul>
@@ -919,6 +992,28 @@
             </div>
         </section>
 
+        <!-- ===== ARTICLES SECTION ===== -->
+        <section class="articles" id="articles">
+            <div class="container">
+                <h2 class="section-title">Articles & Insights</h2>
+                <p class="section-subtitle">Thoughts on cloud infrastructure, DevOps, and engineering best practices</p>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-icon">📝</div>
+                        <h3>Simplicity is Your Friend: Rethinking How We Build on Kubernetes</h3>
+                        <p>Keep Kubernetes simple. Use it for what it's best at — scheduling stateless workloads — and move everything else out.</p>
+                        <a href="https://www.linkedin.com/pulse/simplicity-your-friend-rethinking-how-we-build-kubernetes-feyz-sari-dbioe" target="_blank" rel="noopener noreferrer" class="article-link">
+                            Read on LinkedIn →
+                        </a>
+                        <div class="article-meta">
+                            <span>🏷️ Kubernetes</span>
+                            <span>🏷️ DevOps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== CONTACT SECTION ===== -->
         <section class="contact" id="contact">
             <div class="container">
@@ -1123,7 +1218,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.highlight-card, .experience-item, .skill-category, .cert-card').forEach(el => {
+        document.querySelectorAll('.highlight-card, .experience-item, .skill-category, .cert-card, .article-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
