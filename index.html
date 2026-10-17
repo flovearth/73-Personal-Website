@@ -311,6 +311,32 @@
         .tl-bullets li { color: var(--ink-60); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 0.35rem; }
         .tl-bullets li::marker { color: var(--accent); }
 
+        /* ── PLATFORM MIGRATION ── */
+        #platform-migration { scroll-margin-top: 80px; }
+        .migration-card {
+            padding: 2rem;
+            border: 1px solid var(--ink-10);
+            border-radius: var(--radius-l);
+            background: var(--white);
+        }
+        .migration-card-kicker {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+        .migration-card h3 {
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .migration-card p { color: var(--ink-60); line-height: 1.8; }
+        .migration-card strong { color: var(--ink); }
+
         /* ── SKILLS ── */
         .skills-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .skill-block {
@@ -731,6 +757,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#platform-migration">Platform Migration</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#articles">Articles</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -763,7 +790,7 @@
                     <br>
                 <h1>Feyz Sarı</h1>
                 <p class="hero-role">Cloud &amp; DevOps Engineer</p>
-                <p class="hero-desc">5+ years of expertise in AWS, Kubernetes, Terraform, and CI/CD automation. Proven track record of reducing cloud costs by up to 94% while improving security scores from 34 to 87. Specialising in building scalable, secure, and cost-efficient cloud platforms.</p>
+                <p class="hero-desc">6+ years of expertise in AWS, Kubernetes, Terraform, and CI/CD automation. Proven track record of reducing cloud costs by up to 94% while improving Security Hub scores from 34 to 87. Specialising in building scalable, secure, and cost-efficient cloud platforms.</p>
                 <div class="hero-ctas">
                     <a href="#contact" class="btn btn-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -787,11 +814,11 @@
         <div class="achievement-card glass glow-border fade-up">
             <div>
                 <h3 class="achievement-title">Cloud Cost Optimization</h3>
-                <p class="achievement-text">Achieved dramatic cloud cost reductions: <strong>2025 Results</strong></p>
+                <p class="achievement-text">Delivered FinOps-driven savings across three AWS accounts, including production.</p>
                 <div class="achievement-stats">
-                    <div class="achievement-stat-item"><span>AWS Account-1</span> <span>35% Reduction</span></div>
-                    <div class="achievement-stat-item"><span>AWS Account-2</span> <span>24% Reduction</span></div>
-                    <div class="achievement-stat-item"><span>AWS Account-3</span> <span>11% Reduction</span></div>
+                    <div class="achievement-stat-item"><span>AWS Account 1</span> <span>35% reduction</span></div>
+                    <div class="achievement-stat-item"><span>AWS Account 2</span> <span>24% reduction</span></div>
+                    <div class="achievement-stat-item"><span>AWS Account 3</span> <span>11% reduction</span></div>
                 </div>
             </div>
         </div>
@@ -823,9 +850,8 @@
     </div>
     <div class="about-grid">
         <div class="about-text fade-up">
-            <p>Cloud Platform &amp; DevOps Engineer with 5+ years of hands-on experience designing and operating secure, scalable, and cost-efficient AWS platforms. Specialised in EKS, Kubernetes, Terraform, CI/CD automation, and cloud security.</p>
-            <p>My focus is on providing hassle-free, fully automated development and production environments where engineering teams can concentrate on their product — while staying secure and cost-optimised. I work best at the intersection of infrastructure reliability, developer experience, and financial responsibility.</p>
-            <p>I've supported five engineering teams concurrently at Sainsbury's, architecting across 50+ services and 4 production applications. I write about cloud practices on LinkedIn and believe that simplicity is the highest form of architecture.</p>
+            <p>Cloud Platform &amp; DevOps Engineer with 6+ years of hands-on experience designing and operating secure, scalable, and cost-efficient AWS platforms. Specialised in EKS, Kubernetes, Terraform, CI/CD automation, and cloud security. Proven success improving cloud reliability, reducing costs by up to 94%, and raising Security Hub scores across multi-account environments. Experienced in building observability stacks, optimising databases, and partnering with engineering, security, and SRE teams to deliver high-performance cloud platforms.</p>
+            <p>My work ethic is to provide hassle-free and fully automated development and production environments so teams can do their best while keeping them secure and cost-optimised. I quickly address bottlenecks and remove blockages, creating a workplace where people can focus on their product. Termly feedback rated me 9/10 as a colleague.</p>
         </div>
         <div class="about-meta fade-up">
             <div class="meta-card glass">
@@ -867,12 +893,18 @@
                         <span class="tl-date">Mar 2022 — Present</span>
                     </div>
                     <ul class="tl-bullets">
-                        <li>Working in an Agile environment supporting five software engineering teams across production and non-production environments</li>
-                        <li>Architecting and managing 50+ services, 4 applications, and 30+ tooling components</li>
-                        <li>Managing four EKS clusters using Terraform modules with autoscaling workloads</li>
-                        <li>Leading 100+ CI/CD pipelines across GitHub Actions, Jenkins, and CircleCI</li>
-                        <li>Implemented 160+ cloud security improvements, increasing AWS Security Hub scores from 34 to 87</li>
-                        <li>Delivered FinOps-driven solutions achieving cost reductions of 94% and 74% across two accounts</li>
+                        <li>Working in an <strong>Agile environment</strong> and supporting <strong>five software engineering teams</strong>.</li>
+                        <li>Architecting, managing, optimising, securing, and maintaining <strong>50+ services, 4 applications, 30+ tools</strong>, numerous workloads, and system integrations across environments and platforms.</li>
+                        <li>Managing <strong>four EKS infrastructures using Terraform</strong>, enabling autoscaling workloads and supporting deployments for public websites, internal portals, and web services used by cross-functional teams.</li>
+                        <li>Leading the architecture, management, development, and maintenance of <strong>100+ CI/CD pipelines</strong> across GitHub Actions, Jenkins, and CircleCI, delivering reliable, automated build and deployment workflows with minimal downtime.</li>
+                        <li>Maintaining <strong>RDS (Oracle and MySQL), MongoDB, and DynamoDB</strong> databases, including backups, updates, user and connection management, disaster recovery strategies, restorations, and version upgrades using Terraform and SQL-based tools.</li>
+                        <li>Maintaining monitoring infrastructure including <strong>Elasticsearch, Amazon OpenSearch, Kibana, Grafana, Prometheus and exporters, New Relic</strong>, and ServiceNow integrations, with structured alerting through Slack and ServiceNow.</li>
+                        <li>Improving infrastructure and system performance while consulting and mentoring developers on cloud architecture, security best practices, containerisation, and DevOps tooling.</li>
+                        <li>Creating clear, reusable <strong>Confluence documentation</strong> to support knowledge sharing and standardisation across teams.</li>
+                        <li>Participating in on-call rotations and contributing to architecture discussions and RFCs.</li>
+                        <li>Implementing <strong>160+ cloud security improvements</strong> that increased AWS Security Hub scores from <strong>34 to 87 across four accounts</strong>, and maintaining and developing CloudFront and WAF-integrated solutions.</li>
+                        <li>Developing FinOps-driven solutions that reduced cloud costs by <strong>11% to 35% across three AWS accounts, including production</strong>.</li>
+                        <li>Migrating services from EKS to the built-in Bosun platform.</li>
                     </ul>
                 </div>
             </div>
@@ -931,6 +963,19 @@
     </div>
 </div>
 
+<section class="section" id="platform-migration">
+    <div class="section-head fade-up">
+        <span class="section-eyebrow">// platform engineering</span>
+        <h2 class="section-title">Platform Migration</h2>
+        <p class="section-sub">Moving applications to a managed platform while enabling teams to ship with confidence.</p>
+    </div>
+    <article class="migration-card glass glow-border fade-up">
+        <div class="migration-card-kicker">EKS → Bosun</div>
+        <h3>Scaling a platform migration</h3>
+        <p>Migrated <strong>30+ applications and services from EKS to the Bosun platform</strong>, solving complex challenges across Kubernetes, AWS networking, IAM, DNS, CloudFront, WAF, cross-account connectivity, and CI/CD. Helped shape deployment strategies and drove adoption of a multi-branch approach.</p>
+    </article>
+</section>
+
 <section class="section" id="skills">
     <div class="section-head fade-up">
         <span class="section-eyebrow">// skills</span>
@@ -950,7 +995,7 @@
             <div class="skill-tags">
                 <span class="tag">Terraform</span><span class="tag">CloudFormation</span>
                 <span class="tag">Docker</span><span class="tag">Kubernetes</span>
-                <span class="tag">Helm</span><span class="tag">Flux</span><span class="tag">Ansible</span>
+                <span class="tag">Helm</span><span class="tag">Flux</span><span class="tag">Ansible</span><span class="tag">Bosun</span>
             </div>
         </div>
         <div class="skill-block fade-up glass glow-border">
@@ -971,16 +1016,18 @@
         <div class="skill-block fade-up glass glow-border">
             <div class="skill-block-title">Storage &amp; Databases</div>
             <div class="skill-tags">
-                <span class="tag">RDS</span><span class="tag">DynamoDB</span><span class="tag">MongoDB</span>
+                <span class="tag">RDS</span><span class="tag">Oracle</span><span class="tag">MySQL</span><span class="tag">DynamoDB</span><span class="tag">MongoDB</span>
                 <span class="tag">Neptune</span><span class="tag">S3</span><span class="tag">EFS</span><span class="tag">Redis</span>
             </div>
         </div>
         <div class="skill-block fade-up glass glow-border">
             <div class="skill-block-title">Monitoring &amp; Observability</div>
             <div class="skill-tags">
-                <span class="tag">CloudWatch</span><span class="tag">Grafana</span>
-                <span class="tag">Prometheus</span><span class="tag">OpenSearch</span>
-                <span class="tag">SNS</span><span class="tag">SQS</span>
+                <span class="tag">CloudWatch</span><span class="tag">Elasticsearch</span>
+                <span class="tag">OpenSearch</span><span class="tag">Kibana</span>
+                <span class="tag">Grafana</span><span class="tag">Prometheus</span>
+                <span class="tag">New Relic</span><span class="tag">ServiceNow</span>
+                <span class="tag">Slack alerting</span>
             </div>
         </div>
     </div>
@@ -1004,15 +1051,6 @@
                 <div class="cert-text">
                     <div class="cert-name">AWS Cloud Practitioner</div>
                     <div class="cert-issuer">Amazon Web Services</div>
-                </div>
-            </div>
-            <div class="cert-item fade-up glass glow-border">
-                <div class="cert-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                </div>
-                <div class="cert-text">
-                    <div class="cert-name">Certified Kubernetes Administrator</div>
-                    <div class="cert-issuer">Cloud Native Computing Foundation</div>
                 </div>
             </div>
         </div>
@@ -1051,6 +1089,17 @@
             </div>
             <div class="article-card fade-up glass glow-border">
                 <div class="article-num">03 / ARTICLE</div>
+                <div class="article-title">Cloud Cost Optimisation in the Real World</div>
+                <p class="article-excerpt">A practical look at the changes behind meaningful AWS savings, and how cloud cost optimisation can deliver measurable results without compromising service quality.</p>
+                <div class="article-footer">
+                    <div class="article-tags"><span class="tag">FinOps</span><span class="tag">AWS</span></div>
+                    <a href="https://www.linkedin.com/pulse/cloud-cost-optimisation-real-world-how-i-reduced-aws-spend-feyz-sari-xj73e" target="_blank" rel="noopener" class="article-link-btn">
+                        Read <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="article-card fade-up glass glow-border">
+                <div class="article-num">04 / ARTICLE</div>
                 <div class="article-title">Building a Security-First Culture in DevOps Teams</div>
                 <p class="article-excerpt">Security is not a gate at the end of the pipeline — it's a shared responsibility embedded throughout. Lessons from implementing 160+ security improvements at Sainsbury's.</p>
                 <div class="article-footer">

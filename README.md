@@ -6,6 +6,8 @@ This repository deploys a static website to S3 using GitHub Actions and Terrafor
 - Terraform to provision the S3 buckets and GitHub OIDC role
 - GitHub Actions workflows for provisioning and deployment
 
+For HTTPS and custom-domain setup through CloudFront, see [HTTPS_SETUP.md](HTTPS_SETUP.md).
+
 ## Prerequisites
 - AWS account with permissions to create IAM roles and S3 buckets
 - A GitHub repository with Actions enabled
