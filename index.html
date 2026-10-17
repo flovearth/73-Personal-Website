@@ -311,31 +311,44 @@
         .tl-bullets li { color: var(--ink-60); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 0.35rem; }
         .tl-bullets li::marker { color: var(--accent); }
 
-        /* ── PLATFORM MIGRATION ── */
-        #platform-migration { scroll-margin-top: 80px; }
-        .migration-card {
-            padding: 2rem;
-            border: 1px solid var(--ink-10);
-            border-radius: var(--radius-l);
-            background: var(--white);
+        /* ── VALUE / WHO I AM ── */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
+        .info-card {
+            background: var(--paper); border: 1px solid var(--ink-10);
+            border-radius: var(--radius-l); padding: 1.5rem 1.75rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .migration-card-kicker {
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
+        .section-full .info-card { background: var(--paper); }
+        .info-card:hover { border-color: var(--accent); box-shadow: 0 6px 20px rgba(0,0,0,0.05); }
+        .info-card h3 { font-family: var(--font-display); font-size: 1.0625rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
+        .info-card p { color: var(--ink-60); font-size: 0.9375rem; line-height: 1.7; }
+        .info-card p + p { margin-top: 0.6rem; }
+        .info-card a { color: var(--accent); }
+        .info-card strong { color: var(--ink); }
+        .info-quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
+        .info-quote {
+            border-left: 3px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem;
+            color: var(--ink-60); font-style: italic; line-height: 1.7; font-size: 0.9375rem;
         }
-        .migration-card h3 {
-            color: var(--ink);
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+        .pillars { margin-top: 1.25rem; }
+        .pillars .skill-tags { margin-top: 0.75rem; }
+
+        /* ── PROJECTS ── */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .project-card {
+            display: flex; flex-direction: column; gap: 0.75rem;
+            padding: 2rem; background: var(--white);
+            border: 1px solid var(--ink-10); border-radius: var(--radius-l);
         }
-        .migration-card p { color: var(--ink-60); line-height: 1.8; }
-        .migration-card strong { color: var(--ink); }
+        .project-date {
+            align-self: flex-start;
+            font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+            color: var(--accent); background: var(--accent-lt);
+            padding: 0.3rem 0.7rem; border-radius: 9999px;
+        }
+        .project-card h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--ink); }
+        .project-card p { color: var(--ink-60); line-height: 1.75; font-size: 0.9375rem; }
+        .project-card .article-link-btn { margin-top: auto; }
 
         /* ── SKILLS ── */
         .skills-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -406,7 +419,7 @@
         .article-link-btn svg { width: 14px; height: 14px; }
 
         /* ── CONTACT ── */
-        .contact-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 3rem; align-items: start; }
+        .contact-layout { max-width: 640px; }
         .contact-info-block { display: flex; flex-direction: column; gap: 1rem; }
         .contact-row {
             display: flex; align-items: center; gap: 0.875rem;
@@ -427,34 +440,6 @@
         .contact-row-value { font-size: 0.9375rem; font-weight: 500; color: var(--ink); }
         .contact-row-value a { color: var(--ink); text-decoration: none; }
         .contact-row-value a:hover { color: var(--accent); }
-
-        .contact-form-card {
-            background: var(--white); border: 1px solid var(--ink-10);
-            border-radius: var(--radius-l); padding: 2rem;
-        }
-        [data-theme="dark"] .contact-form-card { background: var(--white); }
-        .form-row { margin-bottom: 1rem; }
-        .form-row label { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--ink-60); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
-        .form-row input, .form-row textarea {
-            width: 100%; padding: 0.625rem 0.875rem;
-            background: var(--paper); border: 1px solid var(--ink-10);
-            border-radius: var(--radius-m); color: var(--ink);
-            font-family: var(--font-body); font-size: 0.9375rem;
-            transition: border-color 0.15s, box-shadow 0.15s;
-        }
-        [data-theme="dark"] .form-row input, [data-theme="dark"] .form-row textarea { background: var(--ink-05); }
-        .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(14,165,233,0.12); }
-        .form-row textarea { min-height: 110px; resize: vertical; }
-        .form-error { display: none; font-size: 0.8rem; color: #ef4444; margin-top: 0.3rem; }
-        .btn-submit {
-            width: 100%; padding: 0.8rem;
-            background: var(--ink); color: var(--paper);
-            border: none; border-radius: var(--radius-m); cursor: pointer;
-            font-family: var(--font-display); font-size: 0.9375rem;
-            font-weight: 700; letter-spacing: 0.01em;
-            transition: background 0.15s, transform 0.15s;
-        }
-        .btn-submit:hover { background: var(--ink-80); transform: translateY(-1px); }
 
         /* ── FOOTER ── */
         footer { border-top: 1px solid var(--ink-10); padding: 2rem; background: var(--white); }
@@ -611,13 +596,6 @@
             50% { box-shadow: 0 0 0 6px rgba(14,165,233,0.2); }
         }
 
-        /* ── SUBMIT GRADIENT ── */
-        .btn-submit {
-            background: linear-gradient(135deg, var(--ink) 0%, #1e293b 50%, var(--accent-dk) 100%) !important;
-            background-size: 200% 200% !important; animation: submitShift 4s ease infinite;
-        }
-        @keyframes submitShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-
         /* ── SOCIAL HOVER ── */
         .social-link:hover { background: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; transform: translateY(-2px); }
 
@@ -716,7 +694,6 @@
             .about-grid { grid-template-columns: 1fr; }
             .skills-layout { grid-template-columns: repeat(2, 1fr); }
             .cert-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-layout { grid-template-columns: 1fr; }
         }
         @media (max-width: 700px) {
             .nav-links {
@@ -757,7 +734,8 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#platform-migration">Platform Migration</a></li>
+            <li><a href="#value">Value</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#articles">Articles</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -810,8 +788,16 @@
 
 <section class="section" id="achievements" style="padding-top: 0;">
     <div class="achievements-grid">
-        <!-- Card 1: Cost Optimization -->
+        <!-- Card 1: Platform Migration -->
         <div class="achievement-card glass glow-border fade-up">
+            <div>
+                <h3 class="achievement-title">Platform Migration</h3>
+                <p class="achievement-text">Migrated <strong>30+ applications and services from EKS to the Bosun platform</strong>, solving complex challenges across Kubernetes, AWS networking, IAM, DNS, CloudFront, WAF, cross-account connectivity and CI/CD. Helped shape deployment strategies and drove the adoption of a multi-branch approach.</p>
+            </div>
+        </div>
+
+        <!-- Card 2: Cost Optimization -->
+        <div class="achievement-card glass glow-border fade-up delay-1">
             <div>
                 <h3 class="achievement-title">Cloud Cost Optimization</h3>
                 <p class="achievement-text">Delivered FinOps-driven savings across three AWS accounts, including production.</p>
@@ -823,16 +809,16 @@
             </div>
         </div>
 
-        <!-- Card 2: Security Hub -->
-        <div class="achievement-card glass glow-border fade-up delay-1">
+        <!-- Card 3: Security Hub -->
+        <div class="achievement-card glass glow-border fade-up delay-2">
             <div>
                 <h3 class="achievement-title">AWS Security Hub</h3>
                 <p class="achievement-text">Increased scores <strong>from 34 to 87</strong> across four accounts by implementing 160+ security improvements and best practices.</p>
             </div>
         </div>
 
-        <!-- Card 3: CI/CD Automation -->
-        <div class="achievement-card glass glow-border fade-up delay-2">
+        <!-- Card 4: CI/CD Automation -->
+        <div class="achievement-card glass glow-border fade-up delay-3">
             <div>
                 <h3 class="achievement-title">CI/CD Management</h3>
                 <p class="achievement-text">Leading management of <strong>100+ CI/CD pipelines</strong> across GitHub Actions, Jenkins, and CircleCI with maximum reliability.</p>
@@ -963,17 +949,148 @@
     </div>
 </div>
 
-<section class="section" id="platform-migration">
+<section class="section" id="value">
     <div class="section-head fade-up">
-        <span class="section-eyebrow">// platform engineering</span>
-        <h2 class="section-title">Platform Migration</h2>
-        <p class="section-sub">Moving applications to a managed platform while enabling teams to ship with confidence.</p>
+        <span class="section-eyebrow">// value</span>
+        <h2 class="section-title">Value I Can Deliver</h2>
+        <p class="section-sub">What I bring to a team and an organisation.</p>
     </div>
-    <article class="migration-card glass glow-border fade-up">
-        <div class="migration-card-kicker">EKS → Bosun</div>
-        <h3>Scaling a platform migration</h3>
-        <p>Migrated <strong>30+ applications and services from EKS to the Bosun platform</strong>, solving complex challenges across Kubernetes, AWS networking, IAM, DNS, CloudFront, WAF, cross-account connectivity, and CI/CD. Helped shape deployment strategies and drove adoption of a multi-branch approach.</p>
-    </article>
+    <div class="info-grid">
+        <div class="info-card glass glow-border fade-up">
+            <h3>Modular cloud systems</h3>
+            <p>Designing, developing, and deploying modular cloud-based systems. Over the last 5 years at Sainsbury's I created and managed <strong>Terraform-coded infrastructure on AWS</strong> and <strong>Helm and Flux</strong>-managed containerised applications on <strong>AWS EKS</strong>, including monitoring, logging, alerting, and connectivity.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-1">
+            <h3>Leadership &amp; open source</h3>
+            <p>Beyond my day job, I led a Cloud Engineering Community that voluntarily built an open-source learning platform on Google Cloud. It developed my leadership and design skills and gave me the experience of creating something new from scratch.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-2">
+            <h3>Cost reduction</h3>
+            <p>Reduced cloud costs by <strong>more than 16% on average</strong> over the last year. <a href="https://www.linkedin.com/pulse/cloud-cost-optimisation-real-world-how-i-reduced-aws-spend-feyz-sari-xj73e" target="_blank" rel="noopener">Read how I did it</a>.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up">
+            <h3>Troubleshooting &amp; security</h3>
+            <p>Identifying, analysing, and resolving infrastructure vulnerabilities and deployment issues in line with company security policies and cloud security best practices.</p>
+            <p>For example, an app with a frontend, backend, authentication, and database had an authentication issue somewhere between DNS, CloudFront, WAF, OAuth2, Azure Entra ID, and the backend. Understanding every component led to the root cause: a <strong>WAF payload limitation</strong>.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-1">
+            <h3>Continuous improvement</h3>
+            <p>Reviewing existing systems and recommending improvements. I like tools that show me what I am missing: I found <strong>zizmor</strong>, which scans GitHub Actions workflows for security issues, and applied all its suggestions across our existing workflows, making them more secure.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-2">
+            <h3>Automation</h3>
+            <p>I recently automated Confluent Cloud secret rotation: it retrieves and decrypts the secrets, compares them with the current credentials, and when they change renews the <strong>HashiCorp Vault</strong> and <strong>AWS Secrets Manager</strong> secrets, without exposing any secret. It also restarts the Kubernetes pods so they pick up the renewed secrets.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up">
+            <h3>CI/CD pipelines</h3>
+            <p>Creating and improving CI/CD pipelines, including integration, operations, management, and maintenance. With GitHub Actions, CircleCI, and Jenkins I have created "miracles" (the developers' word) for tedious but necessary jobs.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-1">
+            <h3>Scripting</h3>
+            <p>Building scripts and processes that reduce barriers, decrease friction, and speed up delivery, mostly with Bash and Python. I have yet to see a case where Bash could not do the job.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-2">
+            <h3>Bridging Dev and Ops</h3>
+            <p>Collaborating with and providing technical assistance to operations and developer teams on microservices, deployment strategies, cloud architecture, and cloud resources, filling the gap between the two as DevOps intends.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up">
+            <h3>Capacity planning</h3>
+            <p>Planning cloud infrastructure capacity, which requires a true understanding of a service's purpose, requirements, expectations, limitations, cost, and business context.</p>
+        </div>
+        <div class="info-card glass glow-border fade-up delay-1">
+            <h3>Clear communication</h3>
+            <p>Presenting complex technical infrastructure in a simple, easy-to-understand way, especially for non-technical colleagues and customers.</p>
+        </div>
+    </div>
+</section>
+
+<div class="section-full">
+    <div class="section-inner" id="who-am-i">
+        <div class="section-head fade-up">
+            <span class="section-eyebrow">// about me</span>
+            <h2 class="section-title">Who I Am</h2>
+            <p class="section-sub">How I work, and what colleagues say about working with me.</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card glass glow-border fade-up">
+                <h3>Self-managing &amp; under pressure</h3>
+                <p>Positive, solution-oriented, self-motivated, disciplined, and organised, and I thrive in a fast-paced environment. I coordinate the migration of <strong>32 production apps and services</strong> to a new platform with 3 developer teams involved. Besides coordination and meeting deadlines, I do the automation and production deployments, resolve infrastructure issues, hand application issues to developers, and coordinate other teams when needed.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up delay-1">
+                <h3>Resilient &amp; results-driven</h3>
+                <p>Naturally resilient and tenacious, with excellent communication and influencing skills. Comfortable leading teams of engineers as well as building the technical solution myself.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up delay-2">
+                <h3>Self-starter</h3>
+                <p>When I heard of a tool that scans GitHub for credential exposure, I installed it, learned it, wrote a script to scan <strong>100+ repositories</strong>, and acted on the findings, even though nobody had asked and there was no ticket.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up">
+                <h3>Team player</h3>
+                <p>Colleagues rate being happy to have me on their team <strong>9.56/10</strong> (Sept 2026), 9.50 (Jan 2026), and 9.38 (2025).</p>
+            </div>
+            <div class="info-card glass glow-border fade-up delay-1">
+                <h3>Adaptable</h3>
+                <p>I support 5 developer teams at the same time, which takes high adaptability.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up delay-2">
+                <h3>Problem solver</h3>
+                <p>Some apps using Elasticsearch ran on a self-managed EKS cluster and hit connectivity issues after being migrated to another platform. I created <strong>AWS OpenSearch</strong>, migrated the data from Elasticsearch, and set up a robust, secure connection, which resolved the issues.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up">
+                <h3>Using AI responsibly</h3>
+                <p>I use AI within company guardrails, and I am keen to explore how it can help us do better what we do. For example, to troubleshoot an issue I had AI fetch S3 logs for a specific timeframe and Kubernetes pod logs, compare the error logs across systems, trace the error, document the findings, and suggest remediations.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up delay-1">
+                <h3>Long-term thinker</h3>
+                <p>I would rather assess all effects, long-term sustainability, and maintenance than just move tickets to done, and I do not sacrifice those for a quick gain. I think strategically about long-term gains and trade-offs.</p>
+            </div>
+            <div class="info-card glass glow-border fade-up delay-2">
+                <h3>Smart-working &amp; always learning</h3>
+                <p>Doing the right thing instead of just doing things right. Eager to learn, interested in new technology, driven by continuous personal development, and happy to get hands-on while thinking about business impact. Proven ability to work creatively and analytically in a problem-solving environment.</p>
+            </div>
+        </div>
+        <div class="info-quotes">
+            <blockquote class="info-quote fade-up">"You bring a high level of expertise and knowledge to the team and your ability to guide &amp; help others is truly valuable. You're always approachable too. Please continue supporting the team, the way you do."</blockquote>
+            <blockquote class="info-quote fade-up delay-1">"Feyz, you do a great job of bringing a positive and collaborative approach to the team. You are approachable, supportive, and always willing to help when needed. I particularly appreciate the way you communicate clearly, listen to different perspectives, and help move discussions towards practical solutions."</blockquote>
+        </div>
+        <div class="pillars fade-up">
+            <h3 style="font-family: var(--font-display); font-size: 1.0625rem; color: var(--ink);">Pillars of my mindset</h3>
+            <div class="skill-tags">
+                <span class="tag">I am part of a team</span>
+                <span class="tag">I embrace constant change and progress</span>
+                <span class="tag">I believe in data</span>
+                <span class="tag">I am sincere and humble</span>
+                <span class="tag">I am result-oriented and take ownership</span>
+                <span class="tag">I am here for the customers</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section" id="projects">
+    <div class="section-head fade-up">
+        <span class="section-eyebrow">// projects</span>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">Open-source and community work beyond my day job.</p>
+    </div>
+    <div class="projects-grid">
+        <article class="project-card glass glow-border fade-up">
+            <span class="project-date">01/2026 – 05/2026 (5 months)</span>
+            <h3>LearnOps — Cloud &amp; DevOps Learning Platform</h3>
+            <p>LearnOps is an open-source learning management platform offering high-quality, free, Turkish-language DevOps education. Built with a community-first approach, the platform features MDX-based course content, a quiz system, progress tracking, and easy OAuth login.</p>
+            <a href="https://github.com/Bilgisayar-Kavramlari-Toplulugu/project-learnops" target="_blank" rel="noopener" class="article-link-btn">
+                View project <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </article>
+        <article class="project-card glass glow-border fade-up delay-1">
+            <span class="project-date">Sept 2025 – Present</span>
+            <h3>Madagascar Multi-hazard Early Warning System</h3>
+            <p>Strengthens Madagascar's disaster risk reduction capacity by integrating monitoring for drought, floods, cyclones, landslides, and epidemics into a single platform. It leverages real-time data and predictive analytics with interactive mapping to support government institutions and UN agencies in building resilience and enabling timely, coordinated humanitarian response. The system enhances risk-informed decision-making through integrated data analytics, GIS mapping, and early warning capabilities that advance sustainable development and protect vulnerable communities.</p>
+            <a href="https://unaihub.aiforgood.itu.int/activity-details.html?id=1521" target="_blank" rel="noopener" class="article-link-btn">
+                View project <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </article>
+    </div>
 </section>
 
 <section class="section" id="skills">
@@ -1053,6 +1170,42 @@
                     <div class="cert-issuer">Amazon Web Services</div>
                 </div>
             </div>
+            <div class="cert-item fade-up glass glow-border">
+                <div class="cert-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </div>
+                <div class="cert-text">
+                    <div class="cert-name">Developing on AWS</div>
+                    <div class="cert-issuer">AWS Training and Certification</div>
+                </div>
+            </div>
+            <div class="cert-item fade-up glass glow-border">
+                <div class="cert-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </div>
+                <div class="cert-text">
+                    <div class="cert-name">Architecting on AWS</div>
+                    <div class="cert-issuer">AWS Training and Certification</div>
+                </div>
+            </div>
+            <div class="cert-item fade-up glass glow-border">
+                <div class="cert-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </div>
+                <div class="cert-text">
+                    <div class="cert-name">Running Containers on Amazon Elastic Kubernetes Service (Amazon EKS)</div>
+                    <div class="cert-issuer">AWS Training and Certification</div>
+                </div>
+            </div>
+            <div class="cert-item fade-up glass glow-border">
+                <div class="cert-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </div>
+                <div class="cert-text">
+                    <div class="cert-name">DevOps Engineering on AWS</div>
+                    <div class="cert-issuer">AWS Training and Certification</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1100,6 +1253,17 @@
             </div>
             <div class="article-card fade-up glass glow-border">
                 <div class="article-num">04 / ARTICLE</div>
+                <div class="article-title">Amazon EC2 Just Got Smarter: Meet Application Status Checks</div>
+                <p class="article-excerpt">A look at Amazon EC2 application status checks and how they help detect application-level problems, not just instance-level failures.</p>
+                <div class="article-footer">
+                    <div class="article-tags"><span class="tag">AWS</span><span class="tag">EC2</span></div>
+                    <a href="https://www.linkedin.com/pulse/amazon-ec2-just-got-smarter-meet-application-status-checks-feyz-sari-sn94e" target="_blank" rel="noopener" class="article-link-btn">
+                        Read <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="article-card fade-up glass glow-border">
+                <div class="article-num">05 / ARTICLE</div>
                 <div class="article-title">Building a Security-First Culture in DevOps Teams</div>
                 <p class="article-excerpt">Security is not a gate at the end of the pipeline — it's a shared responsibility embedded throughout. Lessons from implementing 160+ security improvements at Sainsbury's.</p>
                 <div class="article-footer">
@@ -1157,26 +1321,6 @@
                     <div class="contact-row-value"><a href="https://www.linkedin.com/in/feyzsari" target="_blank" rel="noopener">linkedin.com/in/feyzsari</a></div>
                 </div>
             </div>
-        </div>
-        <div class="contact-form-card fade-up glass glow-border">
-            <form id="contactForm">
-                <div class="form-row">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your full name" required>
-                    <span class="form-error" id="nameError">Please enter your name.</span>
-                </div>
-                <div class="form-row">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                    <span class="form-error" id="emailError">Please enter a valid email address.</span>
-                </div>
-                <div class="form-row">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project or opportunity…" required></textarea>
-                    <span class="form-error" id="messageError">Please enter a message.</span>
-                </div>
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
         </div>
     </div>
 </section>
@@ -1282,24 +1426,6 @@
         });
     }
 
-    /* ── Contact form ── */
-    document.getElementById('contactForm').addEventListener('submit', e => {
-        e.preventDefault();
-        let valid = true;
-        document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const message = document.getElementById('message');
-        if (!name.value.trim()) { document.getElementById('nameError').style.display = 'block'; valid = false; }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { document.getElementById('emailError').style.display = 'block'; valid = false; }
-        if (!message.value.trim()) { document.getElementById('messageError').style.display = 'block'; valid = false; }
-        if (valid) {
-            const s = encodeURIComponent('Website Contact — ' + name.value);
-            const b = encodeURIComponent('Name: ' + name.value + '\nEmail: ' + email.value + '\n\nMessage:\n' + message.value);
-            window.location.href = 'mailto:flovearth@gmail.com?subject=' + s + '&body=' + b;
-            e.target.reset();
-        }
-    });
 </script>
 </body>
 </html>
